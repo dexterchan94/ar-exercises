@@ -5,11 +5,14 @@ class Employee < ActiveRecord::Base
   validates :hourly_rate, numericality: { greater_than_or_equal_to: 40, less_than_or_equal_to: 200}
 
   before_create :set_random_password
-
+  # after_create :set_random_password
+  # before_save :set_random_password
 
   private
     def set_random_password
-      self.password = rand(36**8).to_s(36)
+      random_password = rand(36**8).to_s(36)
+      self.password = random_password
+      # self.update(password: random_password)
     end
 
 

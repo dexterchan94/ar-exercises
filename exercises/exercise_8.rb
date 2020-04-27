@@ -13,5 +13,6 @@ puts "----------"
 # Your code goes here ...
 @store2.employees.create(first_name: "Hacker", last_name: "McHackerface", hourly_rate: 60)
 
-puts Employee.find_by(first_name: "Hacker")
+test_employee = Employee.find_by(first_name: "Hacker")
+pp test_employee
 puts Employee.find_by(first_name: "Hacker").password
