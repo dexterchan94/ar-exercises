@@ -13,4 +13,13 @@ class Store < ActiveRecord::Base
     end
   end
 
+  before_destroy :check_empty_store
+
+  private
+    def check_empty_store
+      if self.employees.size > 0
+        return false
+      end
+    end
+
 end
